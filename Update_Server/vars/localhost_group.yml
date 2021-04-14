@@ -1,0 +1,22 @@
+--- 
+# Create File System for Update
+update: 
+  file: 
+    group: "root"
+    mode: "444"
+    owner: "root"
+    path: "/home/i348832/Downloads/Shell"
+    state: "directory"
+    
+# Copy & Execute Script
+copy: 
+  script:
+    chdir: "/home/i348832/Downloads/Shell"
+    cmd: "./scripts/update.sh"
+
+# Delete File System
+deletefile: 
+  file:
+    path: "/home/i348832/Downloads/Shell"
+    state: "absent"
+...

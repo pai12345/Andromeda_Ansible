@@ -1,0 +1,22 @@
+# Update Servers
+- name: Update Server
+  hosts: localhost_group
+  vars_files:
+    - "./vars/localhost_group.yml"
+  tasks:
+    - name: Create File System for Update
+      file:
+        path: "{{ update.file.path }}"
+        owner: "{{ update.file.owner }}"
+        group: "{{ update.file.group }}"
+        mode: "{{ update.file.mode }}"
+        state: "{{ update.file.state }}"
+    - name: Copy & Execute Script
+      script:
+        chdir: "{{ copy.script.chdir }}"
+        cmd: "{{ copy.script.cmd }}"
+    - name: Delete File System
+      file:
+        path: "{{ deletefile.file.path }}"
+        state: "{{ deletefile.file.state }}"
+      

@@ -1,0 +1,8 @@
+# inventory file
+inventory
+
+# text files
+**.txt
+
+# misc
+.DS_Store
