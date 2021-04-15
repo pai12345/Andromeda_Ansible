@@ -1,0 +1,9 @@
+---
+update_resolv_conf:
+  data: 
+    - "nameserver 8.8.8.8"
+    - "nameserver 8.8.4.4"
+  path: "/etc/resolv.conf"
+  state: "present"
+  owner: "root"
+  group: "root"

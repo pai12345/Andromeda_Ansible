@@ -1,13 +1,14 @@
-# Update Servers
+# Update Nodes
 - name: Update Server
   hosts: localhost_group
   vars_files:
     - "./vars/localhost_group.yml"
   pre_tasks:
-    - name: Delete File System
+    - name: Pre Cleanup of File System
       file:
         path: "{{ deletefile.file.path }}"
         state: "{{ deletefile.file.state }}"
+      when: ansible_os_family == "Debian"
   tasks:
     - name: Create File System for Update
       file:
@@ -16,12 +17,16 @@
         group: "{{ update.file.group }}"
         mode: "{{ update.file.mode }}"
         state: "{{ update.file.state }}"
+      when: ansible_os_family == "Debian"
     - name: Copy & Execute Script
       script:
         chdir: "{{ copy.script.chdir }}"
         cmd: "{{ copy.script.cmd }}"
-    - name: Delete File System
+      when: ansible_os_family == "Debian"
+  post_tasks:
+    - name: Post Cleanup of File System
       file:
         path: "{{ deletefile.file.path }}"
         state: "{{ deletefile.file.state }}"
+      when: ansible_os_family == "Debian"
       
