@@ -1,0 +1,9 @@
+---
+  - name: Update {{ update_resolv_conf.path }}
+    lineinfile:
+      path: "{{ update_resolv_conf.path }}"
+      state: "{{ update_resolv_conf.state }}"
+      owner: "{{ update_resolv_conf.owner }}"
+      group: "{{ update_resolv_conf.group }}"
+      line: "{{ item }}"
+    loop: "{{ update_resolv_conf.data }}"

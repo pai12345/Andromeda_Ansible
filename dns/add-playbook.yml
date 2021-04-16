@@ -1,0 +1,8 @@
+---
+# Update DNS and Hostname
+- name: Update DNS
+  hosts: localhost_group
+  vars_files:
+    - "./roles/add/vars/localhost_group.yml"
+  roles:
+    - add

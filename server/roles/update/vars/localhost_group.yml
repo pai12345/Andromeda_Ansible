@@ -15,11 +15,15 @@ update:
 copy: 
   script:
     chdir: *filepath_update
-    cmd: "./scripts/update.sh"
+    cmd: "../files/update.sh"
 
 # Delete File System
 deletefile: 
   file:
     path: *filepath_update
     state: "absent"
+
+# OS
+OS:
+  type: "Debian"
 ...

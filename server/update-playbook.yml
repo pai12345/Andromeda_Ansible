@@ -1,0 +1,21 @@
+---
+# Update Nodes
+- name: Update Server
+  hosts: localhost_group
+  vars_files:
+    - "./roles/update/vars/localhost_group.yml"
+  pre_tasks:
+    - name: Pre Cleanup of File System
+      file:
+        path: "{{ deletefile.file.path }}"
+        state: "{{ deletefile.file.state }}"
+      when: "ansible_os_family == OS.type"
+  roles:
+    - update
+  post_tasks:
+    - name: Post Cleanup of File System
+      file:
+        path: "{{ deletefile.file.path }}"
+        state: "{{ deletefile.file.state }}"
+      when: "ansible_os_family == OS.type"
+  
