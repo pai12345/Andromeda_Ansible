@@ -2,6 +2,7 @@
 # Update Nodes
 - name: Update Server
   hosts: localhost_group
+  strategy: free
   vars_files:
     - "./roles/update/vars/localhost_group.yml"
   pre_tasks:

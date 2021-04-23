@@ -7,3 +7,4 @@
       group: "{{ update_resolv_conf.group }}"
       line: "{{ item }}"
     loop: "{{ update_resolv_conf.data }}"
+    register: update_result

@@ -7,8 +7,10 @@
         mode: "{{ update.file.mode }}"
         state: "{{ update.file.state }}"
       when: "ansible_os_family == OS.type"
+      register: create_filesystem
     - name: Copy & Execute Script
       script:
         chdir: "{{ copy.script.chdir }}"
         cmd: "{{ copy.script.cmd }}"
       when: "ansible_os_family == OS.type"
+      register: execute_filesystem
