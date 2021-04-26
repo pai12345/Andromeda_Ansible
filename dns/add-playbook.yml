@@ -6,4 +6,5 @@
   vars_files:
     - "./roles/add/vars/localhost_group.yml"
   roles:
-    - add
+    - role: add
+      tags: role_dns_upd

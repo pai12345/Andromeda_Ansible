@@ -7,14 +7,17 @@
     - "./roles/update/vars/localhost_group.yml"
   pre_tasks:
     - name: Pre Cleanup of File System
+      tags: always
       file:
         path: "{{ deletefile.file.path }}"
         state: "{{ deletefile.file.state }}"
       when: "ansible_os_family == OS.type"
   roles:
-    - update
+    - role: update
+      tags: role_srv_upd
   post_tasks:
     - name: Post Cleanup of File System
+      tags: always
       file:
         path: "{{ deletefile.file.path }}"
         state: "{{ deletefile.file.state }}"
