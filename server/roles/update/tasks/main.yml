@@ -1,6 +1,6 @@
 ---
-    - name: Block for System Update    
-      when: ansible_os_family == "Ubuntu"
+    - name: Block for System Update
+      when: "ansible_os_family == OS.type"
       block:
         - name: Create File System for Update
           file:
@@ -13,3 +13,4 @@
           script:
             chdir: "{{ copy.script.chdir }}"
             cmd: "{{ copy.script.cmd }}"
+          notify: "Reboot now"

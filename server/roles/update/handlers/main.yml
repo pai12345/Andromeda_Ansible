@@ -1,0 +1,6 @@
+---
+    - name: "Reboot System"
+      reboot: 
+        msg: Rebooting {{ inventory_hostname }} after Upgrade
+        pre_reboot_delay: 5
+      listen: "Reboot now"
