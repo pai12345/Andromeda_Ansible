@@ -15,6 +15,7 @@
   roles:
     - role: update
       tags: role_srv_upd
+      when: "ansible_os_family == OS.type"
   handlers:
     - include: handlers/main.yml
   post_tasks:

@@ -1,0 +1,3 @@
+---
+    - include: server/update-playbook.yml
+    - include: dns/add-playbook.yml

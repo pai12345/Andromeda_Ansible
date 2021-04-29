@@ -4,3 +4,4 @@
         msg: Rebooting {{ inventory_hostname }} after Upgrade
         pre_reboot_delay: 5
       listen: "Reboot now"
+      when: inventory_hostname != "localsystem"

@@ -1,6 +1,5 @@
 ---
-    - name: Block for System Update    
-      when: ansible_os_family == "Ubuntu"
+    - name: Block for System Update
       block:
         - name: Update {{ update_resolv_conf.path }}
           lineinfile:

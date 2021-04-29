@@ -1,8 +1,6 @@
-# inventory file
+# sensitive
 inventory
-
-# text files
-**.txt
+config.txt
 
 # misc
 .DS_Store
