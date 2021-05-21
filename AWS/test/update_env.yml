@@ -1,0 +1,12 @@
+---
+# Update Nodes
+- name: Update Server
+  hosts: all
+  become: yes
+  strategy: free
+  vars_files:
+    - "./roles/update/vars/localhost_group.yml"
+  roles:
+    - role: update
+      tags: 
+        - role_srv_upd

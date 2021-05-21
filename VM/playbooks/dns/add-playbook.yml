@@ -7,5 +7,6 @@
     - "./roles/add/vars/localhost_group.yml"
   roles:
     - role: add
-      tags: role_dns_upd
+      tags: 
+        - role_dns_upd
       when: "ansible_os_family == OS.type"

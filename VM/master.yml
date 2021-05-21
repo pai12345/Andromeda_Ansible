@@ -1,0 +1,5 @@
+---
+    - name: Add Network Namespaces
+      import_playbook: playbooks/dns/add-playbook.yml
+    - name: Update Server
+      import_playbook: playbooks/server/update-playbook.yml

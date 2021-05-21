@@ -1,0 +1,15 @@
+---
+    - name: Block for System Update
+      block:
+        - name: Create File System for Update
+          file:
+            path: "{{ update.file.path }}"
+            owner: "{{ update.file.owner }}"
+            group: "{{ update.file.group }}"
+            mode: "{{ update.file.mode }}"
+            state: "{{ update.file.state }}"
+        - name: Copy & Execute Script
+          script:
+            chdir: "{{ copy.script.chdir }}"
+            cmd: "{{ copy.script.cmd }}"
+          notify: "Reboot now"

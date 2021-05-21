@@ -1,0 +1,29 @@
+--- 
+    # Global
+    filepath_update: &filepath_update "/home/i348832/Downloads/Shell"
+
+    # Create File System for Update
+    update: 
+      file: 
+        group: "root"
+        mode: "444"
+        owner: "root"
+        path: *filepath_update
+        state: "directory"
+        
+    # Copy & Execute Script
+    copy: 
+      script:
+        chdir: *filepath_update
+        cmd: "../files/update.sh"
+
+    # Delete File System
+    deletefile: 
+      file:
+        path: *filepath_update
+        state: "absent"
+
+    # OS
+    OS:
+      type: "Debian"
+...
