@@ -3,6 +3,10 @@ regions:
   - "us-east-1"
 aws_profile: "us-east-1"
 filters:
-  instance-state-name : "running"
+  instance-state-name: "running"
 compose:
   ansible_host: "public_ip_address"
+keyed_groups:
+  # Creates a group for each value of the tag
+  - key: "tags.project"
+    prefix: "tags"

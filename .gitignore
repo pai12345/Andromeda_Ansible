@@ -1,6 +1,10 @@
 # sensitive
-inventory
 config.txt
 
+# Crash log
+crash.log
+**.log
+
 # misc
+**/.vscode
 .DS_Store
