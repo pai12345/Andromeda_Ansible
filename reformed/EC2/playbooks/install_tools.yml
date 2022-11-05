@@ -1,0 +1,14 @@
+---
+- name: "Install tools in EC2"
+  hosts: "all"
+  tags: "runall"
+  tasks:
+    - name: "Transfer & run script"
+      script: "{{ playbook_dir }}/script/install.sh"
+      tags: "install"
+      register: result
+      when: ansible_os_family == "Debian"
+    - name: "Fetch output"
+      debug:
+        msg: result
+      
